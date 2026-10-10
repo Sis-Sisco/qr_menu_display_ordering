@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "name": "ያቢ ካፌ እና ምግብ ቤት",
+    "tagline": "ጣፋጭ ምግቦቻችንን ይምረጡ እና በቀጥታ ወደ ጠረጴዛዎ ይዘዙ"
+  },
+  "offline": {
+    "banner": "ከመስመር ውጭ ነዎት — የተቀመጠውን ሜኑ ይመልከቱ። ኢንተርኔት ሲመለስ ትዕዛዝዎ ይላካል።"
+  },
+  "table": {
+    "label": "ጠረጴዛ",
+    "prefix": "ጠረጴዛ",
+    "manualPrompt": "ከጠረጴዛዎ ይዘዙ",
+    "manualDesc": "ሜኑውን ለማየት በጠረጴዛዎ ላይ ያለውን የQR ኮድ ይቃኙ። የጠረጴዛ ቁጥርዎን ካወቁ ከታች ያስገቡ።",
+    "manualPlaceholder": "የጠረጴዛ ቁጥር",
+    "manualBtn": "ቀጥል"
+  },
+  "menu": {
+    "searchPlaceholder": "ምግብ፣ መጠጥ፣ ቅመማ ቅመም ይፈልጉ...",
+    "filterAll": "🍽️ ሁሉም",
+    "filterFood": "🍔 ምግብ",
+    "filterDrink": "🥤 መጠጥ",
+    "catFood": "ምግብ",
+    "catDrinks": "መጠጥ",
+    "outOfStock": "አልቋል",
+    "add": "አክል",
+    "added": "ተጨምሯል ✓",
+    "ingredientsLabel": "ንጥረ ነገሮች",
+    "noResultsTitle": "ምንም የተገኘ ምግብ ወይም መጠጥ የለም",
+    "noResultsDesc": "የፈለጉትን ቃል የሚያሟላ የምግብ ዝርዝር ማግኘት አልተቻለም።",
+    "resetFilters": "ፍለጋውን አድስ"
+  },
+  "cart": {
+    "barText": "እቃዎች",
+    "viewOrder": "ትዕዛዝ ይመልከቱ",
+    "sheetTitle": "የእርስዎ ትዕዛዝ",
+    "empty": "ቅርጫትዎ ባዶ ነው። ጣፋጭ ምግብ ይምረጡ!",
+    "total": "አጠቃላይ ድምር",
+    "infoTitle": "የእርስዎ መረጃ",
+    "nameLabel": "የደንበኛ ስም",
+    "namePlaceholder": "ስምዎን ያስገቡ",
+    "nameHint": "ስምዎ ለቀጣይ ትዕዛዝ ተቀምጧል። በማንኛውም ጊዜ መቀየር ይችላሉ።",
+    "nameError": "እባክዎ ትዕዛዝዎን ከማስተላለፍዎ በፊት ስምዎን ያስገቡ።",
+    "specialReqLabel": "ልዩ ምርጫ / ጥያቄ",
+    "optional": "(አማራጭ)",
+    "specialReqPlaceholder": "ምሳሌ፡ ስኳር ትንሽ፣ ያለ ጨው፣ የሚያቃጥል እንዳይሆን፣ ተጨማሪ ሶስ...",
+    "specialReqHint": "ስለ ምግብ ወይም መጠጥ ዝግጅት ማንኛውም ልዩ ምርጫ ካለዎት ለኩሽናችን ያሳውቁ።",
+    "placeOrder": "ትዕዛዝ ላክ",
+    "sending": "ትዕዛዝ በመላክ ላይ...",
+    "viewBill": "የጠረጴዛ ሂሳብ ይመልከቱ",
+    "maxQtyWarning": "⚠️ በአንድ እቃ ላይ የሚፈቀደው ከፍተኛው መጠን 10 ነው።"
+  },
+  "bill": {
+    "titleSuffix": "ትዕዛዞች እና ሂሳብ",
+    "amountDue": "የሚከፈል ሂሳብ",
+    "payNow": "አሁን ክፈል",
+    "note": "በዚህ ጠረጴዛ ላይ የተሰጡ ሁሉም ትዕዛዞች ከላይ ይታያሉ።",
+    "noOrders": "በዚህ ጠረጴዛ ላይ እስካሁን የታዘዘ ነገር የለም።"
+  },
+  "orderStatus": {
+    "myOrderTitle": "🧾 የእኔ ትዕዛዝ",
+    "pending": "🟡 በመጠባበቅ ላይ",
+    "inProgress": "🔵 በመዘጋጀት ላይ",
+    "served": "🟢 ቀርቧል",
+    "cancelled": "🔴 ተሰርዟል",
+    "received": "ደርሷል",
+    "preparing": "በዝግጅት ላይ",
+    "timelineServed": "ቀርቧል",
+    "lockedNotice": "🔒 ትዕዛዝዎ በኩሽና እየተዘጋጀ ስለሆነ ሊቀየር አይችልም።",
+    "cancelledNotice": "🔴 ይህ ትዕዛዝ ተሰርዟል።",
+    "editBtn": "✏️ አሻሽል",
+    "addItemsBtn": "➕ እቃዎችን ጨምር",
+    "cancelBtn": "❌ ሰርዝ",
+    "backToOrder": "ወደ ትዕዛዝዎ ይመለሱ",
+    "addModeBanner": "➕ ወደ ትዕዛዝዎ ለመጨመር ከታች ያሉትን እቃዎች ይምረጡ።"
+  },
+  "editModal": {
+    "title": "✏️ ትዕዛዝዎን ያሻሽሉ",
+    "save": "ለውጦችን መዝግብ",
+    "cancel": "ተመለስ",
+    "updatedTotal": "የተሻሻለ ድምር",
+    "specialReqPlaceholder": "ምሳሌ፡ ስኳር ትንሽ፣ ያለ ሽንኩርት፣ ያለ ጨው..."
+  },
+  "addModal": {
+    "title": "➕ ተጨማሪ እቃዎችን ያረጋግጡ",
+    "prompt": "የሚከተሉት ተጨማሪ እቃዎች ወደ ትዕዛዝዎ ይታከላሉ፡",
+    "prevTotal": "የቀድሞ ድምር",
+    "additional": "+ ተጨማሪ እቃዎች",
+    "newTotal": "አዲሱ አጠቃላይ ድምር",
+    "confirmBtn": "ወደ ትዕዛዝ ጨምር"
+  },
+  "cancelModal": {
+    "title": "⚠️ ትዕዛዝ ይሰረዝ",
+    "message": "ይህን ትዕዛዝ መሰረዝ እርግጠኛ ነዎት? እባክዎን ምክንያቱን ከታች ያስገቡ።",
+    "reasonLabel": "የመሰረዣ ምክንያት",
+    "reasonPlaceholder": "ይህንን ትዕዛዝ ለምን መሰረዝ ፈለጉ?",
+    "keepBtn": "ይቆይ",
+    "confirmBtn": "መሰረዙ ይረጋገጥ",
+    "reasonRequired": "እባክዎን የመሰረዣ ምክንያት ያስገቡ።"
+  },
+  "feedback": {
+    "title": "ትዕዛዝዎ ቀርቧል",
+    "subtitle": "አገልግሎታችን እንዴት ነበር?",
+    "commentPlaceholder": "ስለ ምግብ እና አገልግሎት ያለዎትን አስተያየት ይጻፉ...",
+    "submitBtn": "አስተያየት ላክ",
+    "submitting": "በመላክ ላይ...",
+    "availablePrefix": "አስተያየት ለመስጠት የቀረው ጊዜ፡",
+    "expired": "⏱ የአስተያየት መስጫው ጊዜ አልቋል። ከሜኑው አዲስ ትዕዛዝ መጀመር ይችላሉ።",
+    "successTitle": "እናመሰግናለን!",
+    "successMsg": "አስተያየትዎ በተሳካ ሁኔታ ደርሶናል። ስለ ተሳትፎዎ እናመሰግናለን!",
+    "orderAgain": "እንደገና እዘዝ",
+    "emptyPrompt": "እባክዎን አስተያየትዎን ከማስገባትዎ በፊት ደረጃ ይምረጡ ወይም ጽሁፍ ይጻፉ።",
+    "stars": {
+      "1": "1 — በጣም ደካማ",
+      "2": "2 — ደካማ",
+      "3": "3 — መካከለኛ",
+      "4": "4 — ጥሩ",
+      "5": "5 — እጅግ በጣም ጥሩ"
+    }
+  },
+  "history": {
+    "title": "🧾 ያለፉ ትዕዛዞቼ",
+    "toggleHide": "ደብቅ",
+    "toggleShow": "አሳይ",
+    "cancelledBy": "የሰረዘው አካል",
+    "reason": "ምክንያት"
+  },
+  "toasts": {
+    "orderUpdated": "✅ ትዕዛዝዎ በተሳካ ሁኔታ ተሻሽሏል።",
+    "itemsAdded": "✅ ተጨማሪ እቃዎች ወደ ትዕዛዝዎ ተጨምረዋል።",
+    "orderCancelled": "🔴 ትዕዛዝዎ ተሰርዟል።",
+    "inProgress": "🔵 ትዕዛዝዎ አሁን በኩሽና እየተዘጋጀ ነው።",
+    "served": "🟢 ትዕዛዝዎ ቀርቧል! መልካም ምግብ።",
+    "feedbackSubmitted": "⭐ ለአስተያየትዎ እናመሰግናለን!",
+    "orderSuccess": "✓ ትዕዛዝዎ በተሳካ ሁኔታ ደርሷል! እናመሰግናለን",
+    "offlineQueued": "ከመስመር ውጭ ነዎት — ትዕዛዝዎ ተቀምጧል እና መስመር ሲመለስ ይላካል።",
+    "genericError": "⚠️ ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።"
+  },
+  "voice": {
+    "listening": "🔴 በማዳመጥ ላይ... የምግብ ወይም የመጠጥ ስም ይናገሩ",
+    "processing": "⏳ ድምጽዎን በመተርጎም ላይ...",
+    "searching": "በመፈለግ ላይ",
+    "httpsReq": "የድምጽ ፍለጋ አስተማማኝ የHTTPS ግንኙነት ይፈልጋል።",
+    "unsupported": "ይህ ብሮውዘር የድምጽ ፍለጋን አይደግፍም። እባክዎ የጽሁፍ ሳጥኑን ይጠቀሙ።",
+    "denied": "የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ።"
+  }
+}

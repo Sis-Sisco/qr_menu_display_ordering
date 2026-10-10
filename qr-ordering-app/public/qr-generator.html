@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Table QR Codes — Restaurant Menu</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<header class="admin-header no-print">
+  <div>
+    <h1>Table QR Codes</h1>
+    <p style="font-size:12.5px;color:#cad3cc;margin:3px 0 0;">Print and place on each table for customer ordering</p>
+  </div>
+  <div class="header-right">
+    <button class="primary-btn" style="margin:0;padding:8px 18px;width:auto;" onclick="window.print()">🖨️ Print All QR Codes</button>
+  </div>
+</header>
+
+<div class="container" style="max-width:1100px;margin-top:16px;">
+  <div class="history-filter-box no-print" style="margin-bottom:18px;">
+    <p style="margin:0;font-size:13.5px;color:var(--ink-soft);">
+      💡 Customers scan these codes with their phone camera to browse the menu and order. 
+      <strong>All QR codes link directly to the secure restaurant menu.</strong>
+    </p>
+  </div>
+
+  <div class="qr-grid" id="qrGrid">
+    <p class="empty-note">Loading table QR codes...</p>
+  </div>
+</div>
+
+<script>
+async function loadTables() {
+  const grid = document.getElementById("qrGrid");
+  let tables = [];
+
+  try {
+    const res = await fetch("/api/admin/tables/qr", { credentials: "same-origin" });
+    if (res.status === 401 || res.status === 403) {
+      grid.innerHTML = '<p class="empty-note" style="color:var(--red);">Please <a href="/admin.html">sign in as Admin or Manager</a> first, then reopen this page.</p>';
+      return;
+    }
+    if (!res.ok) throw new Error("bad response");
+    tables = await res.json();
+  } catch (err) {
+    grid.innerHTML = '<p class="empty-note" style="color:var(--red);">Could not load table list.</p>';
+    return;
+  }
+
+  if (!tables || tables.length === 0) {
+    grid.innerHTML = '<p class="empty-note">No tables registered in database.</p>';
+    return;
+  }
+
+  grid.innerHTML = "";
+  const origin = window.location.origin;
+
+  tables.forEach((t) => {
+    const tableUrl = `${origin}/?t=${encodeURIComponent(t.token)}`;
+    const card = document.createElement("div");
+    card.className = "qr-card";
+
+    card.innerHTML = `
+      <div class="qr-card-top">
+        <span class="qr-brand-tag">Yabi Cafe &amp; Restaurant</span>
+        <h2 class="qr-table-title">Table ${t.number}</h2>
+        <span class="qr-scan-badge">📱 Scan to Order</span>
+      </div>
+      
+      <div class="qr-canvas-container" id="qr-table-${t.number}"></div>
+      
+      <div class="qr-card-bottom">
+        <p class="qr-inst">Point your phone camera to view menu &amp; order</p>
+       
+      </div>
+    `;
+
+    grid.appendChild(card);
+
+    const targetEl = document.getElementById(`qr-table-${t.number}`);
+    targetEl.innerHTML = "";
+    
+    new QRCode(targetEl, {
+      text: tableUrl,
+      width: 160,
+      height: 160,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  });
+}
+
+loadTables();
+</script>
+</body>
+</html>

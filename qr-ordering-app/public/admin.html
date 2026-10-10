@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin &amp; Staff Portal — Order Management</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="admin-body">
+
+<!-- LOGIN SCREEN -->
+<div id="loginWrap" class="login-wrap">
+  <div class="login-card">
+    <div class="login-icon">🔒</div>
+    <h1>Staff &amp; Admin Sign In</h1>
+    <p class="login-sub">Sign in with your staff account</p>
+    
+    <div class="field">
+      <label for="loginUsername">Username</label>
+      <input id="loginUsername" type="text" autocomplete="username" placeholder="Enter username" />
+    </div>
+    <div class="field">
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter password" />
+    </div>
+    <p class="error-text" id="loginError">Invalid username or password.</p>
+    <button class="primary-btn" id="loginBtn">Sign In</button>
+  </div>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div id="adminApp" style="display:none;">
+  <header class="admin-header">
+    <div>
+      <h1>Restaurant Staff Portal</h1>
+      <span class="tz-badge" id="currentDateHeader">📍 Addis Ababa · Loading...</span>
+    </div>
+    <div class="header-right">
+      <span class="user-badge" id="activeUserBadge">👤 Staff</span>
+      <button class="sound-btn" id="soundToggleBtn" title="Toggle audio alert">🔔 Sound ON</button>
+      <button class="logout-btn" id="logoutBtn">Sign out</button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="tabs" id="navTabs">
+    <button class="tab-btn active" data-tab="today" data-perm="VIEW_ORDERS">⚡ Today's Live Board</button>
+    <button class="tab-btn" data-tab="history" data-perm="VIEW_HISTORY">📋 Order History<span data-perm="EXPORT_REPORTS"> &amp; Reports</span></button>
+    <button class="tab-btn" data-tab="menu" data-perm="MANAGE_MENU">🍴 Menu Management</button>
+    <button class="tab-btn" data-tab="staff" data-perm="MANAGE_STAFF">👥 Staff Management</button>
+    <button class="tab-btn" data-tab="audit" data-perm="VIEW_AUDIT_LOGS">🛡️ Audit Logs</button>
+    <button class="tab-btn" data-tab="security" data-perm="CHANGE_PASSWORD">🔑 My Account</button>
+  </nav>
+
+  <main class="admin-main">
+    <!-- ================= TAB 1: TODAY'S ORDERS WITH 4-COLUMN KANBAN ================= -->
+    <section id="todayTab">
+      <div class="summary-cards-grid">
+        <div class="stat-card stat-pending">
+          <div class="stat-icon">🟡</div>
+          <div class="stat-info">
+            <span class="stat-label">Pending</span>
+            <span class="stat-value" id="statPending">0</span>
+          </div>
+        </div>
+        <div class="stat-card stat-accepted">
+          <div class="stat-icon">🔵</div>
+          <div class="stat-info">
+            <span class="stat-label">In Progress</span>
+            <span class="stat-value" id="statAccepted">0</span>
+          </div>
+        </div>
+        <div class="stat-card stat-served">
+          <div class="stat-icon">🟢</div>
+          <div class="stat-info">
+            <span class="stat-label">Served</span>
+            <span class="stat-value" id="statServed">0</span>
+          </div>
+        </div>
+        <div class="stat-card stat-total">
+          <div class="stat-icon">📦</div>
+          <div class="stat-info">
+            <span class="stat-label">Total Today</span>
+            <span class="stat-value" id="statTotalCount">0</span>
+            <span class="stat-sub" id="statTotalRev">0 ETB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-COLUMN KANBAN: PENDING -> ACCEPTED -> SERVED -> CANCELLED -->
+      <div class="kanban-4col">
+        <div class="kanban-col col-yellow">
+          <div class="col-head">
+            <h3>🟡 PENDING</h3>
+            <span class="count-pill" id="pillPending">0</span>
+          </div>
+          <div id="colPending" class="col-cards-wrap"></div>
+        </div>
+
+        <div class="kanban-col col-blue">
+          <div class="col-head">
+            <h3>🔵 ACCEPTED / IN PROGRESS</h3>
+            <span class="count-pill" id="pillAccepted">0</span>
+          </div>
+          <div id="colAccepted" class="col-cards-wrap"></div>
+        </div>
+
+        <div class="kanban-col col-green">
+          <div class="col-head">
+            <h3>🟢 SERVED</h3>
+            <span class="count-pill" id="pillServed">0</span>
+          </div>
+          <div id="colServed" class="col-cards-wrap"></div>
+        </div>
+
+        <div class="kanban-col cancelled-column">
+          <div class="col-head cancelled-column-header">
+            <h3 class="cancelled-column-title">🔴 CANCELLED</h3>
+            <span class="count-pill" id="pillCancelled">0</span>
+          </div>
+          <div id="colCancelled" class="col-cards-wrap"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: ORDER HISTORY & SALES REPORT ================= -->
+    <section id="historyTab" style="display:none;">
+      <!-- SALES SUMMARY KPI BAR -->
+      <div class="summary-cards-grid" id="historySummaryKpiGrid" style="margin-bottom:16px;">
+        <div class="stat-card stat-total">
+          <div class="stat-icon">🧾</div>
+          <div class="stat-info">
+            <span class="stat-label">Total Orders</span>
+            <span class="stat-value" id="histKpiTotalOrders">0</span>
+            <span class="stat-sub" style="color:var(--ink);" id="histKpiGrossSales">0 ETB Gross</span>
+          </div>
+        </div>
+        <div class="stat-card stat-served">
+          <div class="stat-icon">💰</div>
+          <div class="stat-info">
+            <span class="stat-label">Completed Sales</span>
+            <span class="stat-value" id="histKpiCompletedSales" style="color:var(--green);">0 ETB</span>
+            <span class="stat-sub" id="histKpiServedOrders">0 served/paid</span>
+          </div>
+        </div>
+        <div class="stat-card" style="border-left:5px solid #b42318;">
+          <div class="stat-icon">🔴</div>
+          <div class="stat-info">
+            <span class="stat-label">Cancelled Value</span>
+            <span class="stat-value" id="histKpiCancelledValue" style="color:#b42318;">0 ETB</span>
+            <span class="stat-sub" style="color:#b42318;" id="histKpiCancelledOrders">0 cancelled</span>
+          </div>
+        </div>
+        <div class="stat-card stat-accepted">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-info">
+            <span class="stat-label">Pending / In Prep</span>
+            <span class="stat-value" id="histKpiActiveOrders">0</span>
+            <span class="stat-sub" style="color:var(--blue);" id="histKpiActiveBreakdown">0 pending · 0 in prep</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="history-filter-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+          <div>
+            <h3 style="margin:0;font-size:17px;font-weight:800;">📋 Permanent Order History<span data-perm="EXPORT_REPORTS"> &amp; Sales Report</span></h3>
+            <p style="font-size:12.5px;color:var(--ink-soft);margin:3px 0 0;">Filter by exact date/time range, staff actor, or order status.</p>
+          </div>
+          <button class="primary-btn excel-export-btn" id="exportHistoryExcelBtn" data-perm="EXPORT_REPORTS" type="button">
+            📊 Export Excel
+          </button>
+        </div>
+        
+        <div class="preset-buttons">
+          <button class="preset-btn active" data-preset="all">All Time</button>
+          <button class="preset-btn" data-preset="today">Today</button>
+          <button class="preset-btn" data-preset="yesterday">Yesterday</button>
+          <button class="preset-btn" data-preset="week">Last 7 Days</button>
+          <button class="preset-btn" data-preset="month">This Month</button>
+        </div>
+
+        <div class="filter-inputs-grid">
+          <div class="field" style="margin-top:0;">
+            <label for="histFromDateTime">From Date &amp; Time</label>
+            <input id="histFromDateTime" type="datetime-local" step="60" />
+          </div>
+          <div class="field" style="margin-top:0;">
+            <label for="histToDateTime">To Date &amp; Time</label>
+            <input id="histToDateTime" type="datetime-local" step="60" />
+          </div>
+          <div class="field" style="margin-top:0;">
+            <label for="histStatus">Status</label>
+            <select id="histStatus">
+              <option value="all">All Statuses</option>
+              <option value="pending">🟡 Pending</option>
+              <option value="accepted">🔵 Accepted / In Progress</option>
+              <option value="served">🟢 Served / Paid</option>
+              <option value="cancelled">🔴 Cancelled</option>
+            </select>
+          </div>
+          <div class="field" style="margin-top:0;">
+            <label for="histStaffRole">Staff / Actor</label>
+            <select id="histStaffRole">
+              <option value="all">All Staff / Actors</option>
+              <option value="ADMIN">Admin</option>
+              <option value="MANAGER">Manager</option>
+              <option value="WAITER">Waiter</option>
+              <option value="KITCHEN_STAFF">Kitchen Staff</option>
+              <option value="CASHIER">Cashier</option>
+              <option value="CUSTOMER">Customer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:10px;">
+          <label for="histSearch">Search (Order #, Customer, Table, Item Name, Staff Name)</label>
+          <input id="histSearch" type="text" placeholder="e.g. 001, Sisay, Table 3, Burger, Helen..." />
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:14px;align-items:center;flex-wrap:wrap;">
+          <button class="primary-btn" id="applyHistoryFilterBtn" style="margin-top:0;width:auto;padding:9px 24px;">🔍 Apply Filter</button>
+          <button class="secondary-btn" id="resetHistoryFilterBtn" style="margin-top:0;width:auto;padding:9px 20px;">Reset Filters</button>
+        </div>
+      </div>
+
+      <div class="history-results-bar">
+        <span id="historyResultsSummary">Showing orders...</span>
+      </div>
+
+      <div id="historyOrdersList" class="history-cards-grid"></div>
+    </section>
+
+    <!-- ================= TAB 3: MENU MANAGEMENT WITH 5-LANGUAGE EDITING ================= -->
+    <section id="menuTab" style="display:none;">
+      <div class="add-item-form">
+        <h3 id="formTitle" style="margin-top:0;">Add a new item</h3>
+        
+        <div class="form-grid">
+          <div class="field">
+            <label>Category</label>
+            <select id="fCategory">
+              <option value="Food">Food</option>
+              <option value="Drinks">Drinks</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Cost (ETB)</label>
+            <input id="fCost" type="number" step="0.01" min="0" placeholder="0.00" />
+          </div>
+          <div class="field">
+            <label>Availability</label>
+            <select id="fAvailable">
+              <option value="true">In stock</option>
+              <option value="false">Out of stock</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Product Image</label>
+            <div class="image-upload-wrap">
+              <div class="img-preview-box" id="imgPreviewBox">
+                <span class="img-preview-placeholder">No image</span>
+              </div>
+              <div style="flex:1;">
+                <input type="file" id="fImageFile" accept="image/png, image/jpeg, image/webp, image/gif" style="font-size:13px;" />
+                <div style="display:flex;gap:8px;margin-top:6px;">
+                  <button type="button" id="clearImageBtn" class="tab-btn" style="padding:4px 10px;font-size:12px;display:none;">Remove Image</button>
+                </div>
+                <input type="hidden" id="fImageUrl" value="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MULTILINGUAL TRANSLATION TABS (EN, AR, AM, OM, TI) -->
+        <div class="field" style="margin-top:16px;">
+          <label style="font-weight:700;color:var(--ink);">🌐 Multilingual Content &amp; Translations</label>
+          <div class="admin-lang-tabs" id="adminLangTabs">
+            <button type="button" class="admin-lang-tab-btn active" data-admin-lang="en">🇬🇧 English (Base * )</button>
+            <button type="button" class="admin-lang-tab-btn" data-admin-lang="ar">🇸🇦 العربية</button>
+            <button type="button" class="admin-lang-tab-btn" data-admin-lang="am">🇪🇹 አማርኛ</button>
+            <button type="button" class="admin-lang-tab-btn" data-admin-lang="om">🌍 Afaan Oromoo</button>
+            <button type="button" class="admin-lang-tab-btn" data-admin-lang="ti">🇪🇹 ትግርኛ</button>
+          </div>
+
+          <!-- ENGLISH PANE -->
+          <div class="admin-lang-pane active" id="pane-en">
+            <div class="field" style="margin-top:0;">
+              <label>Name (English) <span style="color:var(--red);">*</span></label>
+              <input id="fName_en" type="text" placeholder="e.g. Chicken Burger" />
+            </div>
+            <div class="field">
+              <label>Description (English)</label>
+              <input id="fDesc_en" type="text" placeholder="Appetizing description in English" />
+            </div>
+            <div class="field" id="ingWrap_en">
+              <label>Ingredients (English - comma separated)</label>
+              <input id="fIng_en" type="text" placeholder="e.g. Chicken, Tomato, Onion, Cheese" />
+            </div>
+          </div>
+
+          <!-- ARABIC PANE -->
+          <div class="admin-lang-pane" id="pane-ar" dir="rtl">
+            <div class="field" style="margin-top:0;">
+              <label>الاسم (العربية)</label>
+              <input id="fName_ar" type="text" placeholder="مثال: برغر دجاج" />
+            </div>
+            <div class="field">
+              <label>الوصف (العربية)</label>
+              <input id="fDesc_ar" type="text" placeholder="وصف شهي باللغة العربية" />
+            </div>
+            <div class="field" id="ingWrap_ar">
+              <label>المكونات (العربية - مفصولة بفواصل)</label>
+              <input id="fIng_ar" type="text" placeholder="دجاج، طماطم، بصل، جبن" />
+            </div>
+          </div>
+
+          <!-- AMHARIC PANE -->
+          <div class="admin-lang-pane" id="pane-am">
+            <div class="field" style="margin-top:0;">
+              <label>ስም (አማርኛ)</label>
+              <input id="fName_am" type="text" placeholder="ምሳሌ፡ የዶሮ በርገር" />
+            </div>
+            <div class="field">
+              <label>መግለጫ (አማርኛ)</label>
+              <input id="fDesc_am" type="text" placeholder="ስለ ምግቡ ማብራሪያ" />
+            </div>
+            <div class="field" id="ingWrap_am">
+              <label>ንጥረ ነገሮች (አማርኛ - በኮማ የተለዩ)</label>
+              <input id="fIng_am" type="text" placeholder="ዶሮ፣ ቲማቲም፣ ሽንኩርት፣ አይብ" />
+            </div>
+          </div>
+
+          <!-- AFAAN OROMOO PANE -->
+          <div class="admin-lang-pane" id="pane-om">
+            <div class="field" style="margin-top:0;">
+              <label>Maqaa (Afaan Oromoo)</label>
+              <input id="fName_om" type="text" placeholder="Fkn: Burgarii Lukkuu" />
+            </div>
+            <div class="field">
+              <label>Ibsa (Afaan Oromoo)</label>
+              <input id="fDesc_om" type="text" placeholder="Ibsa nyaata kanaa" />
+            </div>
+            <div class="field" id="ingWrap_om">
+              <label>Wantoota ittiin tolfame (Afaan Oromoo - Komaan gargar baasi)</label>
+              <input id="fIng_om" type="text" placeholder="Lukkuu, Timaatima, Qullubbii, Cheezii" />
+            </div>
+          </div>
+
+          <!-- TIGRINYA PANE -->
+          <div class="admin-lang-pane" id="pane-ti">
+            <div class="field" style="margin-top:0;">
+              <label>ስም (ትግርኛ)</label>
+              <input id="fName_ti" type="text" placeholder="ንኣብነት፡ በርገር ደርሆ" />
+            </div>
+            <div class="field">
+              <label>መግለጺ (ትግርኛ)</label>
+              <input id="fDesc_ti" type="text" placeholder="ብዛዕባቲ መግቢ መግለጺ" />
+            </div>
+            <div class="field" id="ingWrap_ti">
+              <label>ቀንዲ ትሕዝቶ (ትግርኛ - ብኮማ ዝተፈለዩ)</label>
+              <input id="fIng_ti" type="text" placeholder="ደርሆ፣ ኮሚደረ፣ ሽጉርቲ፣ ኣይብ" />
+            </div>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="saveItemBtn">Add item</button>
+        <button class="secondary-btn" id="cancelEditBtn" style="display:none;">Cancel edit</button>
+        <p class="error-text" id="menuFormError">Something went wrong.</p>
+      </div>
+
+      <div id="menuList"></div>
+    </section>
+
+    <!-- ================= TAB 4: STAFF MANAGEMENT ================= -->
+    <section id="staffTab" style="display:none;">
+      <div class="history-filter-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h3 style="margin:0;font-size:18px;">👥 Staff &amp; Employee Management</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft);margin:4px 0 0;">Create employee accounts with assigned roles and permissions.</p>
+          </div>
+          <button class="primary-btn" id="openAddStaffModalBtn" style="margin-top:0;width:auto;padding:9px 18px;">+ Add Staff Member</button>
+        </div>
+
+        <div class="filter-inputs-grid" style="margin-top:14px;">
+          <div class="field" style="margin-top:0;grid-column:1/3;">
+            <label>Search Staff</label>
+            <input id="staffSearchInput" type="text" placeholder="Search by name or @username..." />
+          </div>
+          <div class="field" style="margin-top:0;">
+            <label>Role</label>
+            <select id="staffRoleFilter">
+              <option value="ALL">All Roles</option>
+              <option value="ADMIN">Admin</option>
+              <option value="MANAGER">Manager</option>
+              <option value="WAITER">Waiter</option>
+              <option value="KITCHEN_STAFF">Kitchen Staff</option>
+              <option value="CASHIER">Cashier</option>
+            </select>
+          </div>
+          <div class="field" style="margin-top:0;">
+            <label>Status</label>
+            <select id="staffStatusFilter">
+              <option value="ALL">All Status</option>
+              <option value="ACTIVE">Active</option>
+              <option value="DISABLED">Disabled</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="audit-table-wrap">
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Username</th>
+              <th>Assigned Role</th>
+              <th>Status</th>
+              <th>Last Login</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="staffTableBody">
+            <tr><td colspan="6" class="empty-note">Loading staff members...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= TAB 5: AUDIT LOGS ================= -->
+    <section id="auditTab" style="display:none;">
+      <div class="history-filter-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="margin:0;font-size:16px;">🛡️ Administrative &amp; Staff Audit Logs</h3>
+          <button class="tab-btn" id="refreshAuditBtn" style="padding:4px 12px;font-size:12px;">↻ Refresh Logs</button>
+        </div>
+        <p style="font-size:12.5px;color:var(--ink-soft);margin:6px 0 0;">
+          All logins, order acceptances, status updates, cancellations, and staff modifications are permanently recorded.
+        </p>
+      </div>
+
+      <div class="audit-table-wrap">
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>Timestamp (Addis Ababa)</th>
+              <th>User</th>
+              <th>Role</th>
+              <th>Action</th>
+              <th>Details</th>
+              <th>IP Address</th>
+            </tr>
+          </thead>
+          <tbody id="auditTableBody">
+            <tr><td colspan="6" class="empty-note">Loading logs...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= TAB 6: ACCOUNT SECURITY ================= -->
+    <section id="securityTab" style="display:none;">
+      <div class="add-item-form" style="max-width:540px;margin:0 auto;">
+        <h3 style="margin-top:0;">🔑 Change My Password</h3>
+        <p style="font-size:13px;color:var(--ink-soft);">
+          Update your login password. All other active sessions for your account will be securely invalidated.
+        </p>
+        <div class="field">
+          <label for="curPassword">Current Password</label>
+          <input id="curPassword" type="password" placeholder="Enter current password" />
+        </div>
+        <div class="field">
+          <label for="newPassword">New Password (min 8 characters)</label>
+          <input id="newPassword" type="password" placeholder="Enter strong new password" />
+        </div>
+        <div class="field">
+          <label for="confPassword">Confirm New Password</label>
+          <input id="confPassword" type="password" placeholder="Confirm new password" />
+        </div>
+        <p class="error-text" id="pwdChangeError"></p>
+        <p class="success-text" id="pwdChangeSuccess" style="display:none;color:var(--green);font-size:13px;margin-top:10px;">✓ Password changed successfully.</p>
+        <button class="primary-btn" id="savePasswordBtn">Update Password</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL: ADMIN CANCEL ORDER CONFIRMATION -->
+<div id="adminCancelOrderModal" class="cancel-modal-backdrop" style="display:none;">
+  <div class="cancel-modal">
+    <div class="cancel-modal-icon">⚠️</div>
+    <h3 class="cancel-modal-title" id="adminCancelTitle">Cancel Order</h3>
+    <p class="cancel-modal-description" id="adminCancelDesc">Are you sure you want to cancel this order?</p>
+
+    <div style="text-align:left;">
+      <label for="adminCancelReasonInput" class="cancel-reason-label">Cancellation reason <span style="color:var(--red);">*</span></label>
+      <textarea id="adminCancelReasonInput" class="cancel-reason-input" placeholder="Why are you cancelling this order?" autocomplete="off"></textarea>
+    </div>
+
+    <div class="cancel-modal-actions">
+      <button type="button" class="cancel-modal-button cancel-keep-button" id="adminKeepOrderBtn">Go Back</button>
+      <button type="button" class="cancel-modal-button cancel-confirm-button" id="adminConfirmCancelBtn" disabled>Confirm Cancellation</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADD STAFF -->
+<div id="addStaffModal" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Add New Staff Member</h3>
+      <button class="modal-close" data-modal-close="addStaffModal">✕</button>
+    </div>
+    <div class="field">
+      <label>Full Name</label>
+      <input id="addStaffFullName" type="text" placeholder="e.g. John Doe" />
+    </div>
+    <div class="field">
+      <label>Username</label>
+      <input id="addStaffUsername" type="text" placeholder="e.g. jdoe" autocomplete="off" />
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Role</label>
+        <select id="addStaffRole">
+          <option value="WAITER">Waiter</option>
+          <option value="KITCHEN_STAFF">Kitchen Staff</option>
+          <option value="CASHIER">Cashier</option>
+          <option value="MANAGER">Manager</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Status</label>
+        <select id="addStaffStatus">
+          <option value="ACTIVE">Active</option>
+          <option value="DISABLED">Disabled</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Password (min 8 characters)</label>
+      <input id="addStaffPassword" type="password" placeholder="Enter password" />
+    </div>
+    <div class="field">
+      <label>Confirm Password</label>
+      <input id="addStaffConfirmPassword" type="password" placeholder="Confirm password" />
+    </div>
+    <p class="error-text" id="addStaffError"></p>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button class="primary-btn" id="saveAddStaffBtn" style="margin-top:0;">Save Staff Account</button>
+      <button class="secondary-btn" data-modal-close="addStaffModal" style="margin-top:0;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: EDIT STAFF -->
+<div id="editStaffModal" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="editStaffTitle">Edit Staff Member</h3>
+      <button class="modal-close" data-modal-close="editStaffModal">✕</button>
+    </div>
+    <input type="hidden" id="editStaffId" />
+    <div class="field">
+      <label>Full Name</label>
+      <input id="editStaffFullName" type="text" />
+    </div>
+    <div class="field">
+      <label>Username (Read-only)</label>
+      <input id="editStaffUsername" type="text" disabled style="background:var(--paper-alt);cursor:not-allowed;" />
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Role</label>
+        <select id="editStaffRole">
+          <option value="WAITER">Waiter</option>
+          <option value="KITCHEN_STAFF">Kitchen Staff</option>
+          <option value="CASHIER">Cashier</option>
+          <option value="MANAGER">Manager</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Status</label>
+        <select id="editStaffStatus">
+          <option value="ACTIVE">Active</option>
+          <option value="DISABLED">Disabled</option>
+        </select>
+      </div>
+    </div>
+    <p class="error-text" id="editStaffError"></p>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button class="primary-btn" id="saveEditStaffBtn" style="margin-top:0;">Save Changes</button>
+      <button class="secondary-btn" data-modal-close="editStaffModal" style="margin-top:0;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: RESET STAFF PASSWORD -->
+<div id="resetStaffPwdModal" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="resetPwdTitle">Reset Staff Password</h3>
+      <button class="modal-close" data-modal-close="resetStaffPwdModal">✕</button>
+    </div>
+    <input type="hidden" id="resetStaffId" />
+    <p style="font-size:13px;color:var(--ink-soft);margin:4px 0 14px;">Set a new secure password for this employee account.</p>
+    <div class="field">
+      <label>New Password (min 8 characters)</label>
+      <input id="resetNewPwd" type="password" placeholder="Enter new password" />
+    </div>
+    <div class="field">
+      <label>Confirm New Password</label>
+      <input id="resetConfPwd" type="password" placeholder="Confirm new password" />
+    </div>
+    <p class="error-text" id="resetPwdError"></p>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button class="primary-btn" id="saveResetStaffPwdBtn" style="margin-top:0;">Reset Password</button>
+      <button class="secondary-btn" data-modal-close="resetStaffPwdModal" style="margin-top:0;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

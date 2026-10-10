@@ -1,0 +1,70 @@
+
+# ==========================================
+# Environment variables and secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+certificates/
+
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+**/node_modules/
+
+# ==========================================
+# Logs and debugging
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==========================================
+# Local database files and backups
+# ==========================================
+qr-ordering-app/server/data/db.json
+qr-ordering-app/server/data/db.json.bak.*
+qr-ordering-app/server/data/*.bak
+qr-ordering-app/server/data/*.backup
+
+# ==========================================
+# Uploaded files
+# NOTE: Use persistent storage in production.
+# ==========================================
+qr-ordering-app/public/uploads/*
+!qr-ordering-app/public/uploads/.gitkeep
+
+# ==========================================
+# Build outputs and caches
+# ==========================================
+dist/
+build/
+.next/
+.vercel/
+.cache/
+coverage/
+
+# ==========================================
+# Operating system files
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Editors
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo

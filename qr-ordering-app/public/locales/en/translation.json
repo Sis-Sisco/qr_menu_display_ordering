@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "name": "Yabi Cafe & Restaurant",
+    "tagline": "Browse our delicious menu & order straight to your table"
+  },
+  "offline": {
+    "banner": "You're offline — browsing saved menu. Orders will send once online."
+  },
+  "table": {
+    "label": "Table",
+    "prefix": "Table",
+    "manualPrompt": "Order at your table",
+    "manualDesc": "Scan the QR code on your table to see the menu. If you already know your table number, enter it below.",
+    "manualPlaceholder": "Table number",
+    "manualBtn": "Continue"
+  },
+  "menu": {
+    "searchPlaceholder": "Search food, drinks, ingredients...",
+    "filterAll": "🍽️ ALL",
+    "filterFood": "🍔 FOOD",
+    "filterDrink": "🥤 DRINK",
+    "catFood": "Food",
+    "catDrinks": "Drinks",
+    "outOfStock": "Out of stock",
+    "add": "Add",
+    "added": "Added ✓",
+    "ingredientsLabel": "Ingredients",
+    "noResultsTitle": "No menu items found",
+    "noResultsDesc": "We couldn't find anything matching your search criteria.",
+    "resetFilters": "Reset Search & Filters"
+  },
+  "cart": {
+    "barText": "items",
+    "viewOrder": "View order",
+    "sheetTitle": "Your order",
+    "empty": "Your cart is empty. Add something tasty!",
+    "total": "Total",
+    "infoTitle": "Your Information",
+    "nameLabel": "Customer Name",
+    "namePlaceholder": "Enter your name",
+    "nameHint": "Your name is saved for your next order. You can change it anytime.",
+    "nameError": "Please enter your name before placing your order.",
+    "specialReqLabel": "Special Request",
+    "optional": "(Optional)",
+    "specialReqPlaceholder": "Example: Less salt, less sugar, no spicy food, extra sauce...",
+    "specialReqHint": "Tell our kitchen if you have any special request about your food or drink.",
+    "placeOrder": "Send Order",
+    "sending": "Sending Order...",
+    "viewBill": "View Table Bill",
+    "maxQtyWarning": "⚠️ Maximum quantity is 10 per item."
+  },
+  "bill": {
+    "titleSuffix": "Orders & Bill",
+    "amountDue": "Amount due",
+    "payNow": "Pay now",
+    "note": "All orders placed at this table are shown above.",
+    "noOrders": "No orders yet at this table."
+  },
+  "orderStatus": {
+    "myOrderTitle": "🧾 MY ORDER",
+    "pending": "🟡 PENDING",
+    "inProgress": "🔵 ACCEPTED / IN PROGRESS",
+    "served": "🟢 SERVED",
+    "cancelled": "🔴 CANCELLED",
+    "received": "Received",
+    "preparing": "Preparing",
+    "timelineServed": "Served",
+    "lockedNotice": "🔒 Your order is already being prepared and can no longer be changed.",
+    "cancelledNotice": "🔴 This order was cancelled.",
+    "editBtn": "✏️ Edit",
+    "addItemsBtn": "➕ ADD ITEMS",
+    "cancelBtn": "❌ Cancel",
+    "backToOrder": "Back to My Order",
+    "addModeBanner": "➕ Select items below to add to your order."
+  },
+  "editModal": {
+    "title": "✏️ Edit Your Order",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "updatedTotal": "Updated Total",
+    "specialReqPlaceholder": "e.g. Less salt, no onion, less sugar..."
+  },
+  "addModal": {
+    "title": "➕ Confirm Added Items",
+    "prompt": "The following additional items will be added to your pending order:",
+    "prevTotal": "Previous Total",
+    "additional": "+ Additional Items",
+    "newTotal": "New Total",
+    "confirmBtn": "Add to Order"
+  },
+  "cancelModal": {
+    "title": "⚠️ Cancel Order",
+    "message": "Are you sure you want to cancel this order? Please enter the reason below.",
+    "reasonLabel": "Cancellation reason",
+    "reasonPlaceholder": "Why are you cancelling this order?",
+    "keepBtn": "Keep Order",
+    "confirmBtn": "Confirm Cancellation",
+    "reasonRequired": "Please enter a cancellation reason."
+  },
+  "feedback": {
+    "title": "ORDER SERVED",
+    "subtitle": "How was your experience?",
+    "commentPlaceholder": "Tell us about your food and service experience...",
+    "submitBtn": "Submit Feedback",
+    "submitting": "Submitting Feedback...",
+    "availablePrefix": "Feedback available for",
+    "expired": "⏱ The feedback period has ended. You can start a new order from the menu.",
+    "successTitle": "Thank You!",
+    "successMsg": "Your feedback has been received. We appreciate your feedback!",
+    "orderAgain": "ORDER AGAIN",
+    "emptyPrompt": "Please provide a rating or write a comment before submitting.",
+    "stars": {
+      "1": "1 — Very Poor",
+      "2": "2 — Poor",
+      "3": "3 — Average",
+      "4": "4 — Good",
+      "5": "5 — Excellent"
+    }
+  },
+  "history": {
+    "title": "🧾 My Order History",
+    "toggleHide": "Hide",
+    "toggleShow": "Show",
+    "cancelledBy": "Cancelled by",
+    "reason": "Reason"
+  },
+  "toasts": {
+    "orderUpdated": "✅ Order updated successfully.",
+    "itemsAdded": "✅ New item added to your order.",
+    "orderCancelled": "🔴 Your order has been cancelled.",
+    "inProgress": "🔵 Your order is now being prepared.",
+    "served": "🟢 Order Served! We hope you enjoyed your meal.",
+    "feedbackSubmitted": "⭐ Thank you for your feedback!",
+    "orderSuccess": "✓ Order Sent Successfully! Thank you",
+    "offlineQueued": "You're offline — order saved and will send automatically once online.",
+    "genericError": "⚠️ Something went wrong. Please try again."
+  },
+  "voice": {
+    "listening": "🔴 Listening... speak food or drink name",
+    "processing": "⏳ Processing voice...",
+    "searching": "Searching",
+    "httpsReq": "Voice search requires a secure HTTPS connection.",
+    "unsupported": "Voice search is not supported by this browser. Please use the search box.",
+    "denied": "Microphone permission was denied. Please allow microphone access in your browser settings."
+  }
+}

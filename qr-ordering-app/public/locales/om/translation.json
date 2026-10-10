@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "name": "Yabi caffee fi mana nyaataa",
+    "tagline": "Nyaatawwan fi dhugaatiiwwan mi'aawaa filadhaatii kallattiin minjaala keessanitti ajajaa"
+  },
+  "offline": {
+    "banner": "Toora irraa ala jirtu — meenuu kuufame ilaalaa jirtu. Toorri yoo deebi'u ni ergama."
+  },
+  "table": {
+    "label": "Minjaala",
+    "prefix": "Minjaala",
+    "manualPrompt": "Minjaala keessan irraa ajajaa",
+    "manualDesc": "Meenuu ilaaluuf koodii QR minjaala keessan irra jiru iskaan godhaa. Lakkoofsa minjaala keessanii yoo beektan armaan gaditti galchaa.",
+    "manualPlaceholder": "Lakkoofsa Minjaalaa",
+    "manualBtn": "Itti fufi"
+  },
+  "menu": {
+    "searchPlaceholder": "Nyaata, dhugaatii fi waan ittiin tolfame barbaadaa...",
+    "filterAll": "🍽️ HUNDA",
+    "filterFood": "🍔 NYAATA",
+    "filterDrink": "🥤 DHUGAATII",
+    "catFood": "Nyaata",
+    "catDrinks": "Dhugaatii",
+    "outOfStock": "Dhumateera",
+    "add": "Dabaladhaa",
+    "added": "Dabalameera ✓",
+    "ingredientsLabel": "Wantoota ittiin qophaa'u",
+    "noResultsTitle": "Wanti barbaaddan hin argamne",
+    "noResultsDesc": "Waan isin barbaaddaniin wal-simu meenuu keessaa argachuu hin dandeenye.",
+    "resetFilters": "Barbaacha Haaromsaa"
+  },
+  "cart": {
+    "barText": "mi'oota",
+    "viewOrder": "Ajaja Ilaalaa",
+    "sheetTitle": "Ajaja Keessan",
+    "empty": "Kookiin keessan duwwaadha. Waan mi'aawaa filadhaatii itti dabalaa!",
+    "total": "Ida'ama Waliigalaa",
+    "infoTitle": "Oodeeffannoo Keessan",
+    "nameLabel": "Maqaa Maamilaa",
+    "namePlaceholder": "Maqaa keessan galchaa",
+    "nameHint": "Maqaan keessan ajaja itti aanuuf kuufameera. Yeroo barbaaddan jijjiiruu dandeessu.",
+    "nameError": "Mee ajaja keessan erguun dura maqaa keessan galchaa.",
+    "specialReqLabel": "Fedhii Addaa",
+    "optional": "(Dirqama Miti)",
+    "specialReqPlaceholder": "Fkn: Sukkaara xiqqaa, soogidda malee, qaraa akka hin taane, soosii dabalataa...",
+    "specialReqHint": "Waa'ee qophii nyaata ykn dhugaatii keessanii fedhii addaa yoo qabaattan kutaa nyaataa keenyatti himaa.",
+    "placeOrder": "Ajaja Ergaa",
+    "sending": "Ajajni ergamaa jira...",
+    "viewBill": "Nagahee Minjaalaa Ilaalaa",
+    "maxQtyWarning": "⚠️ Mi'a tokkoof baay'inni ol'aanaan 10 dha."
+  },
+  "bill": {
+    "titleSuffix": "Ajajoota fi Nagahee",
+    "amountDue": "Gatiin Kaffalamu",
+    "payNow": "Amma Kaffalaa",
+    "note": "Ajajawwan minjaala kana irratti kennaman hundi armaan olitti mul'atu.",
+    "noOrders": "Minjaala kana irratti ajajni hanga ammaatti hin jiru."
+  },
+  "orderStatus": {
+    "myOrderTitle": "🧾 AJAJA KOO",
+    "pending": "🟡 EEGGACHAA JIRA",
+    "inProgress": "🔵 QOPHAA'AA JIRA",
+    "served": "🟢 DHIHAATEERA",
+    "statusCancelled": "🔴 HAQAMEERA",
+    "received": "Daqiiqaa",
+    "preparing": "Qophii",
+    "timelineServed": "Dhihaateera",
+    "lockedNotice": "🔒 Ajajni keessan qophiirra waan jiruuf jijjiiramuu hin danda'u.",
+    "cancelledNotice": "🔴 Ajajni kun haqameera.",
+    "editBtn": "✏️ Sirreessi",
+    "addItemsBtn": "➕ MI'OOTA DABALADHU",
+    "cancelBtn": "❌ Haqi",
+    "backToOrder": "Gara Ajajaatti Deebi'aa",
+    "addModeBanner": "➕ Mi'oota dabalataa filachuun ajaja keessanitti dabalaa."
+  },
+  "editModal": {
+    "title": "✏️ Ajaja Keessan Sirreessaa",
+    "save": "Jijjiirama Galmeessi",
+    "cancel": "Dhiisi",
+    "updatedTotal": "Ida'ama Haaraa",
+    "specialReqPlaceholder": "Fkn: Sukkaara xiqqaa, qullubbii malee, soogidda malee..."
+  },
+  "addModal": {
+    "title": "➕ Mi'oota Dabalataa Mirkaneessaa",
+    "prompt": "Mi'oonni dabalataa kun ajaja keessanitti ni dabalamu:",
+    "prevTotal": "Gatii Duraa",
+    "additional": "+ Mi'oota Dabalataa",
+    "newTotal": "Ida'ama Haaraa",
+    "confirmBtn": "Ajajatti Dabali"
+  },
+  "cancelModal": {
+    "title": "⚠️ Ajajni haa haqamu",
+    "message": "Ajaja kana haquu barbaaduu keessan mirkaneeffadhaa? Mee sababa armaan gaditti galchaa.",
+    "reasonLabel": "Sababa haqumsaa",
+    "reasonPlaceholder": "Maaliif ajaja kana haquu barbaaddan?",
+    "keepBtn": "Haa Tahu",
+    "confirmBtn": "Haquun Haa Mirkanaa'u",
+    "reasonRequired": "Mee sababa haqumsaa galchaa."
+  },
+  "feedback": {
+    "title": "AJAJNI DHIHAATEERA",
+    "subtitle": "Tajaajilli keenya akkam ture?",
+    "commentPlaceholder": "Waa'ee nyaataa fi tajaajila keenyaa yaada keessan nuuf ibsaa...",
+    "submitBtn": "Yaada Ergi",
+    "submitting": "Ergamaa jira...",
+    "availablePrefix": "Yeroon hafe:",
+    "expired": "⏱ Yeroon yaada kennuu xumurameera. Meenuu irraa ajaja haaraa jalqabuu dandeessu.",
+    "successTitle": "Galatoomaa!",
+    "successMsg": "Yaanni keessan milkaa'inaan nu gaheera. Galatoomaa!",
+    "orderAgain": "AMMAS AJAJAA",
+    "emptyPrompt": "Mee yaada keessan erguun dura sadarkaa filadhaa ykn yaada barreessaa.",
+    "stars": {
+      "1": "1 — Baay'ee Gadaanaa",
+      "2": "2 — Gadaanaa",
+      "3": "3 — Giddu-galeessa",
+      "4": "4 — Gaarii",
+      "5": "5 — Baay'ee Gaarii"
+    }
+  },
+  "history": {
+    "title": "🧾 Ajajoota Koo Duraanii",
+    "toggleHide": "Dhoksi",
+    "toggleShow": "Agarsiisi",
+    "cancelledBy": "Kan haqe",
+    "reason": "Sababa"
+  },
+  "toasts": {
+    "orderUpdated": "✅ Ajajni keessan milkaa'inaan sirreeffameera.",
+    "itemsAdded": "✅ Mi'oonni dabalataa ajaja keessanitti dabalameera.",
+    "orderCancelled": "🔴 Ajajni keessan haqameera.",
+    "inProgress": "🔵 Ajajni keessan amma qophaa'aa jira.",
+    "served": "🟢 Ajajni dhihaateera! Nyaata gaarii.",
+    "feedbackSubmitted": "⭐ Yaada keessaniif galatoomaa!",
+    "orderSuccess": "✓ Ajajni keessan milkaa'inaan ergameera! Galatoomaa",
+    "offlineQueued": "Toora irraa ala jirtu — ajajni keessan kuufameera, toorri yoo deebi'u ofumaan ergama.",
+    "genericError": "⚠️ Rakkoon uumameera. Mee irra deebi'aa yaalaa."
+  },
+  "voice": {
+    "listening": "🔴 Dhaggeeffachaa jira... Maqaa nyaataa ykn dhugaatii dubbadhaa",
+    "processing": "⏳ Sagalee qorachaa jira...",
+    "searching": "Barbaadaa jira",
+    "httpsReq": "Sagaleen barbaaduuf eegumsa HTTPS barbaada.",
+    "unsupported": "Barowsarri kun sagaleen barbaaduu hin deeggaru. Mee sanduuqa barreessaa fayyadamaa.",
+    "denied": "Hayyamni maaykiroofoonii dhowwameera. Mee barowzara keessan irratti hayyamaa."
+  }
+}

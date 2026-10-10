@@ -1,0 +1,24 @@
+
+{
+  "name": "qr-ordering-app",
+  "version": "1.0.0",
+  "description": "QR code ordering system for restaurants, hotels and cafes with MongoDB",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "migrate": "node server/migrate.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0"
+  },
+  "devDependencies": {
+    "selfsigned": "^2.4.1"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "license": "MIT"
+}

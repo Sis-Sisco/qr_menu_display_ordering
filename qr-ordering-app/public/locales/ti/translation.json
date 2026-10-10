@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "name": "ያቢ ካፌን ቤት መግብን",
+    "tagline": "ምሩጻት መግብታትና ምረጹ እሞ ብቐጥታ ናብ ጠረጴዛኹም እዘዙ"
+  },
+  "offline": {
+    "banner": "ካብ ኢንተርኔት ወጻኢ ኢኹም ዘለኹም — ዝተዓቀበ ሜኑ ትርእዩ ኣለኹም። ኢንተርኔት ምስ ተመልሰ ትእዛዝኩም ክለኣኽ እዩ።"
+  },
+  "table": {
+    "label": "ጠረጴዛ",
+    "prefix": "ጠረጴዛ",
+    "manualPrompt": "ካብ ጠረጴዛኹም እዘዙ",
+    "manualDesc": "ሜኑ ንምርኣይ ኣብ ጠረጴዛኹም ዘሎ ናይ QR ኮድ ስካን ግበሩ። ቍጽሪ ጠረጴዛኹም እንተፈሊጥኩም ድማ ኣብ ታሕቲ ኣእትዉ።",
+    "manualPlaceholder": "ቍጽሪ ጠረጴዛ",
+    "manualBtn": "ቀጽል"
+  },
+  "menu": {
+    "searchPlaceholder": "መግቢ፣ መስተ፣ ቀመማት ድለዩ...",
+    "filterAll": "🍽️ ኩሉ",
+    "filterFood": "🍔 መግቢ",
+    "filterDrink": "🥤 መስተ",
+    "catFood": "መግቢ",
+    "catDrinks": "መስተ",
+    "outOfStock": "ተወዲኡ",
+    "add": "ወሲኽ",
+    "added": "ተወሲኹ ✓",
+    "ingredientsLabel": "ቀንዲ ትሕዝቶ",
+    "noResultsTitle": "ዝተረኽበ መግቢ ወይ መስተ የለን",
+    "noResultsDesc": "ምስ ዝደለይዎ ቃል ዝሰማማዕ ናይ መግቢ ዝርዝር ክርከብ ኣይተኻእለን።",
+    "resetFilters": "ምድላይ ሓድሽ"
+  },
+  "cart": {
+    "barText": "ኣቑሑት",
+    "viewOrder": "ትእዛዝ ርአ",
+    "sheetTitle": "ትእዛዝኩም",
+    "empty": "ዘንቢልኩም ጥራዩ እዩ። ጥዑም መግቢ ምረጹ!",
+    "total": "ጠቕላላ ድምር",
+    "infoTitle": "ሓበሬታኹም",
+    "nameLabel": "ስም ዓሚል",
+    "namePlaceholder": "ስምኩም ኣእትዉ",
+    "nameHint": "ስምኩም ንዝቕጽል ትእዛዝ ተዓቂቡ ኣሎ። ኣብ ዝኾነ እዋን ክትቅይርዎ ትኽእሉ ኢኹም።",
+    "nameError": "ትእዛዝኩም ቅድሚ ምልኣኽኩም በጃኹም ስምኩም ኣእትዉ።",
+    "specialReqLabel": "ፍሉይ ምርጫ / ሕቶ",
+    "optional": "(ኣማራጺ)",
+    "specialReqPlaceholder": "ንኣብነት፡ ሽኮር ውሑድ፣ ብዘይ ጨው፣ ዘየቃጽል፣ ተወሳኺ ሶስ...",
+    "specialReqHint": "ብዛዕባ ኣሰራርሓ መግቢ ወይ መስተ ዝኾነ ፍሉይ ምርጫ እንተሃልዩኩም ንክሽነና ሓብሩ።",
+    "placeOrder": "ትእዛዝ ስደድ",
+    "sending": "ትእዛዝ ይስደድ ኣሎ...",
+    "viewBill": "ናይ ጠረጴዛ ሒሳብ ርአ",
+    "maxQtyWarning": "⚠️ ኣብ ሓደ ዓይነት መግቢ ዝፍቀድ ዝለዓለ መጠን 10 እዩ።"
+  },
+  "bill": {
+    "titleSuffix": "ትእዛዛትን ሒሳብን",
+    "amountDue": "ዝኽፈል ሒሳብ",
+    "payNow": "ሕጂ ክፈል",
+    "note": "ኣብዛ ጠረጴዛ እዚኣ ዝተዋህቡ ኩሎም ትእዛዛት ኣብ ላዕሊ ይርኣዩ።",
+    "noOrders": "ኣብዛ ጠረጴዛ እዚኣ ክሳብ ሕጂ ዝተኣዘዘ ነገር የለን።"
+  },
+  "orderStatus": {
+    "myOrderTitle": "🧾 ናተይ ትእዛዝ",
+    "pending": "🟡 ኣብ ምጽባይ ዘሎ",
+    "inProgress": "🔵 ኣብ ምድላው ዘሎ",
+    "served": "🟢 ቀሪቡ",
+    "cancelled": "🔴 ተሰሪዙ",
+    "received": "በጺሑ",
+    "preparing": "ኣብ ምድላው",
+    "timelineServed": "ቀሪቡ",
+    "lockedNotice": "🔒 ትእዛዝኩም ኣብ ክሽነ ኣብ ምድላው ስለዘሎ ክቕየር ኣይክእልን እዩ።",
+    "cancelledNotice": "🔴 እዚ ትእዛዝ ተሰሪዙ እዩ።",
+    "editBtn": "✏️ ኣመሓይሽ",
+    "addItemsBtn": "➕ ኣቑሑት ወስኽ",
+    "cancelBtn": "❌ ሰርዝ",
+    "backToOrder": "ናብ ትእዛዝኩም ተመለሱ",
+    "addModeBanner": "➕ ኣብ ትእዛዝኩም ንምውሳኽ ካብ ታሕቲ ዘለዉ ኣቑሑት ምረጹ።"
+  },
+  "editModal": {
+    "title": "✏️ ትእዛዝኩም ኣመሓይሹ",
+    "save": "ለውጥታት መዝግብ",
+    "cancel": "ተመለስ",
+    "updatedTotal": "ዝተመሓየሸ ድምር",
+    "specialReqPlaceholder": "ንኣብነት፡ ሽኮር ውሑድ፣ ብዘይ ሽጉርቲ፣ ብዘይ ጨው..."
+  },
+  "addModal": {
+    "title": "➕ ተወሳኺ ኣቑሑት ኣረጋግጹ",
+    "prompt": "እዞም ዝስዕቡ ተወሳኺ ኣቑሑት ናብ ትእዛዝኩም ክውሰኹ እዮም፡",
+    "prevTotal": "ናይ ቀደም ድምር",
+    "additional": "+ ተወሳኺ ኣቑሑት",
+    "newTotal": "ሓድሽ ጠቕላላ ድምር",
+    "confirmBtn": "ናብ ትእዛዝ ወስኽ"
+  },
+  "cancelModal": {
+    "title": "⚠️ ትእዛዝ ይሰረዝ",
+    "message": "ነዚ ትእዛዝ እዚ ክትሰርዝዎ ርግጸኛ ዲኹም? በጃኹም ምኽንያት ኣብ ታሕቲ ኣእትዉ።",
+    "reasonLabel": "ናይ ምስራዝ ምኽንያት",
+    "reasonPlaceholder": "ነዚ ትእዛዝ ንምንታይ ክትሰርዝዎ ደሊኹም?",
+    "keepBtn": "ይጽናሕ",
+    "confirmBtn": "ምስራዝ ይረጋገጽ",
+    "reasonRequired": "በጃኹም ናይ ምስራዝ ምኽንያት ኣእትዉ።"
+  },
+  "feedback": {
+    "title": "ትእዛዝኩም ቀሪቡ",
+    "subtitle": "ኣገልግሎትና ከመይ ነይሩ?",
+    "commentPlaceholder": "ብዛዕባ መግብን ኣገልግሎትን ዘለኩም ርእይቶ ጸሓፉ...",
+    "submitBtn": "ርእይቶ ስደድ",
+    "submitting": "ይስደድ ኣሎ...",
+    "availablePrefix": "ርእይቶ ንምሃብ ዝተረፈ ግዜ፡",
+    "expired": "⏱ ናይ ርእይቶ መሃቢ ግዜ ተወዲኡ እዩ። ካብቲ ሜኑ ሓድሽ ትእዛዝ ክትጅምሩ ትኽእሉ ኢኹም።",
+    "successTitle": "የቐንየልና!",
+    "successMsg": "ርእይቶኹም ብዓወት በጺሑና ኣሎ። ስለ ተሳትፎኹም ነመስግን!",
+    "orderAgain": "ከም ብሓድሽ እዘዝ",
+    "emptyPrompt": "በጃኹም ርእይቶኹም ቅድሚ ምልኣኽኩም ደረጃ ምረጹ ወይ ጽሑፍ ጸሓፉ።",
+    "stars": {
+      "1": "1 — ኣዝዩ ድኹም",
+      "2": "2 — ድኹም",
+      "3": "3 — ማእከላይ",
+      "4": "4 — ጽቡቕ",
+      "5": "5 — ኣዝዩ ብሉጽ"
+    }
+  },
+  "history": {
+    "title": "🧾 ዝሓለፉ ትእዛዛተይ",
+    "toggleHide": "ሕባእ",
+    "toggleShow": "ኣርኢ",
+    "cancelledBy": "ዝሰረዞ ኣካል",
+    "reason": "ምኽንያት"
+  },
+  "toasts": {
+    "orderUpdated": "✅ ትእዛዝኩም ብዓወት ተመሓይሹ ኣሎ።",
+    "itemsAdded": "✅ ተወሳኺ ኣቑሑት ናብ ትእዛዝኩም ተወሲኹ ኣሎ።",
+    "orderCancelled": "🔴 ትእዛዝኩም ተሰሪዙ ኣሎ።",
+    "inProgress": "🔵 ትእዛዝኩም ሕጂ ኣብ ክሽነ ይዳሎ ኣሎ።",
+    "served": "🟢 ትእዛዝኩም ቀሪቡ ኣሎ! ብሩኽ ምግቢ።",
+    "feedbackSubmitted": "⭐ ስለ ርእይቶኹም የቐንየልና!",
+    "orderSuccess": "✓ ትእዛዝኩም ብዓወት በጺሑ ኣሎ! የቐንየልና",
+    "offlineQueued": "ካብ ኢንተርኔት ወጻኢ ኢኹም ዘለኹም — ትእዛዝኩም ተዓቂቡ ኣሎ እሞ መስመር ምስ ተረኽበ ብቐጥታ ክስደድ እዩ።",
+    "genericError": "⚠️ ጸገም ተፈጢሩ ኣሎ። በጃኹም ደጊምኩም ፈትኑ።"
+  },
+  "voice": {
+    "listening": "🔴 ይሰምዕ ኣሎ... ናይ መግቢ ወይ መስተ ስም ተዛረቡ",
+    "processing": "⏳ ድምጽኹም ይትርጎም ኣሎ...",
+    "searching": "ይድለ ኣሎ",
+    "httpsReq": "ድምጺ ምድላይ ውሑስ ናይ HTTPS ርክብ የድልዮ።",
+    "unsupported": "እዚ ብሮውዘር እዚ ድምጺ ምድላይ ኣይድግፍን እዩ። በጃኹም ናይ ጽሑፍ ሳጹን ተጠቐሙ።",
+    "denied": "ናይ ማይክሮፎን ፍቓድ ተኸልኪሉ ኣሎ። በጃኹም ኣብ ብሮውዘርኩም ፍቓድ ሃቡ።"
+  }
+}

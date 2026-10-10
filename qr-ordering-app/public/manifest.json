@@ -1,0 +1,9 @@
+{
+  "name": "Table Ordering",
+  "short_name": "Order",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f4ef",
+  "theme_color": "#1f2e28",
+  "icons": []
+}
