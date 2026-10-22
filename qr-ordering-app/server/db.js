@@ -5,7 +5,7 @@ const { MongoClient } = require("mongodb");
 const path = require("path");
 const fs = require("fs");
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/restaurant_ordering";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://yadessasisay050_db_user:DMNTi2xDIXF4m2k3@cluster0.alngtmf.mongodb.net/";
 const DB_NAME = process.env.DB_NAME || "restaurant_ordering";
 
 let client = null;
