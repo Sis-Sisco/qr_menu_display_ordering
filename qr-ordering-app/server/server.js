@@ -2629,4 +2629,12 @@ async function startServer() {
   }
 }
 
-startServer();
+
+if (process.env.VERCEL) {
+  // Vercel runs Express as a serverless function.
+  // Do not start a traditional HTTP server.
+  module.exports = app;
+} else {
+  // Local development or traditional Node.js hosting.
+  startServer();
+}
