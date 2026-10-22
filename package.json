@@ -18,8 +18,7 @@
     "selfsigned": "^2.4.1"
   },
   "engines": {
-  "node": "22.x"
-},
-{
+    "node": "22.x"
+  },
   "license": "MIT"
-},
+}
